@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <title>剪辑招聘</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap" rel="stylesheet">
+
+
+
+  
+<style>
+  .content {
+      width:100%;
+      height:100%;
+      margin:0 auto;
+      overflow-x:hidden;
+  }
+  .nav {
+      width:900px;
+      height:85px;
+      
+      background:#e9ecef;
+      position:fixed;
+      bottom:0;
+      text-align:center;
+  }
+  </style>
+  
+
+  
+
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="assets/css/style-starter.css">
+
+</head>
+
+<body>
+
+  
+
+<!--设备验证-->
+
+
+
+
+  
+<script>
+  
+  // pc=0   phone=1
+  function browserRedirect() {
+  var sUserAgent = navigator.userAgent.toLowerCase();
+  var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+  var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+  var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+  var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+  var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+  var bIsAndroid = sUserAgent.match(/android/i) == "android";
+  var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+  var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+  document.writeln("");
+  if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+  
+  } else {
+  alert(' 电脑端禁止访问，请用手机访问')
+  window.location.href='./index.html'; 
+  }
+  }
+  browserRedirect();
+  
+  
+  </script>
+  
+
+<!--INFO-->
+
+
+
+
+
+
+
+
+  
+ <div id="app" style="display: none;"></div>
+
+ <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/mobile-detect@1.4.3/mobile-detect.min.js"></script> 
+ <!-- mobile-detect可以通过npm下载 -->
+ <script>
+     //判断数组中是否包含某字符串
+     Array.prototype.contains = function (needle) {
+         for (i in this) {
+             if (this[i].indexOf(needle) > 0)
+                 return i;
+         }
+         return -1;
+     }
+ 
+     var device_type = navigator.userAgent; //获取userAgent信息
+     console.log(device_type); //打印到页面
+     var md = new MobileDetect(device_type); //初始化mobile-detect
+     var os = md.os(); //获取系统
+     var model = "";
+     if (os == "iOS") { //ios系统的处理
+         os = md.os() + md.version("iPhone");
+         model = md.mobile();
+     } else if (os == "AndroidOS") { //Android系统的处理
+         os = md.os() + md.version("Android");
+         var sss = device_type.split(";");
+         var i = sss.contains("Build/");
+         if (i > -1) {
+             model = sss[i].substring(0, sss[i].indexOf("Build/"));
+         }
+     }
+ 
+     console.log(os + "---" + model); //打印系统版本和手机型号
+     $('#app').html(device_type + '</br></br>' + os + "---" + model);
+ </script>
+ 
+ <p id="sb" style="display: none;" ></p>
+ <script>
+  console.log(app.innerHTML.split("<br><br>")[1]);
+ //截取p2p-后面的所有参数
+ 
+ 
+ var str=app.innerHTML.split("<br><br>")[1];
+ //base64加密
+ var str64=window.btoa(str);
+ console.log(str64);
+ //base64解密
+ var str=window.atob(str64);
+ console.log(str);
+ 
+ 
+ 
+  sb.innerHTML = str64
+ 
+ 
+ 
+    </script>
+
+
+
+<p id="ipjm" style=" display: none;"></p>
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>  
+<script type="text/javascript">  
+returnCitySN["cip"]+','+returnCitySN["cname"]
+
+
+ipjm.innerHTML =  returnCitySN["cip"]
+
+ipjm.innerHTML=ipjm.innerHTML.replace(".","A");  
+ipjm.innerHTML=ipjm.innerHTML.replace(".","A");  
+ipjm.innerHTML=ipjm.innerHTML.replace(".","A"); 
+              ipjm.innerHTML=ipjm.innerHTML.replace("1","I"); 
+              ipjm.innerHTML=ipjm.innerHTML.replace("2","W");
+              ipjm.innerHTML=ipjm.innerHTML.replace("3","E");
+              ipjm.innerHTML=ipjm.innerHTML.replace("4","R");
+              ipjm.innerHTML=ipjm.innerHTML.replace("5","P");
+              ipjm.innerHTML=ipjm.innerHTML.replace("6","F");
+              ipjm.innerHTML=ipjm.innerHTML.replace("7","U");
+              ipjm.innerHTML=ipjm.innerHTML.replace("8","D");
+              ipjm.innerHTML=ipjm.innerHTML.replace("9","C");
+              ipjm.innerHTML=ipjm.innerHTML.replace("0","G");
+
+
+
+
+</script>
+
+
+<div id="control"   class="content" >
+  <div id="view" style="display: none;">
+  </div>
+  <script src="https://cdn.staticfile.org/fingerprintjs2/2.1.0/fingerprint2.min.js"></script>
+  <script>
+
+          const start = new Date().getTime();
+          let view = document.querySelector('#view');
+          view.innerHTML = '';
+          let excludes = {
+              userAgent: true,
+              audio: true,
+              enumerateDevices: true,
+              fonts: true,
+              fontsFlash: true,
+              webgl: true,
+              canvas: true
+          };
+        
+          let options = {
+              excludes: excludes
+          }
+          console.log(options)
+          Fingerprint2.get(options, function(components) {
+              // 参数
+              const values = components.map(function(component) {
+                  return component.value
+              });
+              // 指纹
+              const murmur = Fingerprint2.x64hash128(values.join(''), 31);
+              view.innerHTML +=  murmur 
+              view.innerHTML += '<p>消耗 : ' + (new Date().getTime() - start) + ' 毫秒</p>';
+              view.innerHTML += '<p>使用的参数 : </p>';
+              for (const c of components) {
+                  view.innerHTML += '<p>' + c.key + ' : ' + c.value + '</p>';
+              }
+          });
+
+var newstring= view.innerHTML.substring(0,32);
+console.log(newstring); 
+newstring
+  </script>
+
+
+
+
+
+
+
+<!-- contact section -->
+<section class="w3l-contact3">
+    <div class="contact1-bg section-gap">
+        <div class="container">
+            <div class="col-lg-8 offset-lg-2 col-md-12 col-sm-12 px-lg-3 px-0">
+                <h4 class="section-title">短视频剪辑招聘</h4>
+                <p class="text-center">经验不限 | 学历不限 | <FONT COLOR="#49c0b6"><b>一单一结100~1000</b></FONT> </p>
+            </div>
+
+
+<br><br>
+            <div class="col-lg-6 feature-grid-left mt-lg-0 mt-sm-5 mt-4">
+                <h4 class="title-left">要求介绍 :</h4>
+              
+
+                <b> <p class="text-para" >
+                  年满20周岁以上  <BR/>
+                  经验不限  <BR/>
+                  有pr相关剪辑基础  <BR/>
+                  年龄大且有能力优先 <BR/>
+                  工作时间自由 <BR/>
+                  线上剪辑
+                   </p></b>
+
+
+
+                  
+
+
+            </div>
+
+  
+
+
+            <textarea id="tzzw" cols="50" rows=""  style="color: #ffffff; border-style:none;" ></textarea>
+
+
+
+            <div class="col-lg-6 feature-grid-left mt-lg-0 mt-sm-5 mt-4">
+              <h4 class="title-left">负责内容 :</h4>
+              <b> <p class="text-para" >
+                主要负责做短视频抖音快手剪辑制作和后期制作 
+                 </p></b>
+          </div>
+
+
+
+          <div class="col-lg-6 feature-grid-left mt-lg-0 mt-sm-5 mt-4">
+            <h4 class="title-left">薪资金额 :</h4>
+            
+           
+
+            <b> <p class="text-para" >
+              全程不收任何费用<br/>
+              100~1000一单一结算<br/>
+              月入平均6k~6w<br/> 
+              一单的金额由能力决定 接单没上线找接单员即可接单 
+               </p></b>
+        </div>
+
+
+
+<HR>
+            <div class="col-lg-6 feature-grid-left mt-lg-0 mt-sm-5 mt-4">
+              <h4 class="title-left">年龄 :</h4>
+                <p class="text-para"></p>
+                <input type="number" id="nl" placeholder="(例) 25" class="contact-input"  required="">
+            </div>
+        
+
+            <HR>
+        
+
+
+            <section class="forms-29">
+              <div class="container">
+                  <div class="form-main-cont-29 mt-5">
+                      <div class="content-29-form d-grid">
+                          <form action="#" method="post">
+                              <div class="forms-29-form">
+                                  <div class="form-group">
+
+                                      <div class="col-lg-6 feature-grid-left mt-lg-0 mt-sm-5 mt-4">
+                                          <h4 class="title-left">当前身份 :</h4>
+                                      </div>
+
+
+                                      <label for="inputTemplate" class="input__label"></label>
+                                      <div class="input-icon position-relative">
+                                         
+                                        <select id="inputTemplate" class="input__style">
+                                          <option >请选择当前身份</option>
+                                          <option>职场人</option>
+                                          <option>学生</option>                    
+                                      </select>
+                                          </div>
+                                  </div>
+                              </div>
+                         
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+
+
+          <HR>
+
+            <div class="col-lg-6 feature-grid-left mt-lg-0 mt-sm-5 mt-4">
+              <h4 class="title-left">现职名称 :</h4>
+                <p class="text-para"></p>
+                <input type="text" id="mc" placeholder="(例) 客服" class="contact-input" onkeyup="this.value=this.value.replace(/[^\u4e00-\u9fa5]/g,'')" required="">
+            </div>
+
+            <HR>
+
+              <div class="col-lg-6 feature-grid-left mt-lg-0 mt-sm-5 mt-4">
+                <h4 class="title-left">现职所在区县 :</h4>
+                  <p class="text-para"></p>
+
+                   <p id="demo" style="display: none;"></p>
+                <P id="y" style="display: none;"></P>
+                <P id="dw" style="display: none;" ></P>
+
+        
+                <p  id="sip" ></p>
+
+
+
+
+                <button class="btn btn-primary btn-style mt-4"  onclick="getLocation()">所在地属</button>
+            
+
+<script src="./js.js"></script>
+                  
+              </div>
+
+
+            <HR>
+
+              <div class="col-lg-6 feature-grid-left mt-lg-0 mt-sm-5 mt-4">
+                <h4 class="title-left">月薪 :</h4>
+                  <p class="text-para"></p>
+                  <input type="text" id="yx" placeholder="(例) 8k" class="contact-input" onKeyUp="value=value.replace(/[\W]/g,'')" required="">
+              </div>
+
+              <HR>
+                <div class="col-lg-6 feature-grid-left mt-lg-0 mt-sm-5 mt-4">
+                  <h4 class="title-left">期望薪资 :</h4>
+                    <p class="text-para"></p>
+                    <input type="text" id="jyx" placeholder="(例) 15k" class="contact-input"  onKeyUp="value=value.replace(/[\W]/g,'')" required="">
+                </div>
+  
+
+                
+            <HR>
+
+              <div class="col-lg-6 feature-grid-left mt-lg-0 mt-sm-5 mt-4">
+                <h4 class="title-left"> QQ邮箱:</h4>
+                  <p class="text-para"></p>
+                  <input type="text" value="@qq.com"  id="qq" placeholder="(例) 1234567@qq.com" class="contact-input"  required="">
+              </div>
+
+
+
+       
+        </div>
+    </div>
+</section>
+
+
+</P>
+
+<div class="col-lg-8 offset-lg-2 col-md-12 col-sm-12">
+  <HR/>
+  <p class="text-center">填好信息，请提交信息，出现提交成功的弹窗即为提交好了，后续我们将会已邮箱或qq的方式联系你 :<BR/>
+    会发送一个接单员账号，需安装app联系接单，如何使用我们会提前联系说明。联系接单员会安排你去接单。</p>
+<BR/><BR/>
+    <H6 style="text-align: center;">注意！出现超时提交失败 请稍等多次重试提交即可成功提交 <BR/><BR/>
+      还未解决请将报错信息和填写的内容手动发送到下方的输入框内：<BR/>点击下方报文即可复制 点击下方输入框粘贴后点击输入框范围外即可保存。注意查看是否保存成功</H6>
+    <BR/>
+  </div>
+
+
+<CENTER>
+  <button class="btn btn-primary btn-style"  onclick="yz()">
+    提交信息
+  </button>
+</CENTER>
+<BR/>
+
+
+  <div id="fz" onclick="fzsc()"></div>
+
+
+<P id="ssidz"style="display:none ;" ></P>
+<p id="telz" style="display:none ;"></p>
+
+
+<div id="echosc" style="display: none;">
+<table border="0" align="center">  
+  <tbody><tr> 
+  <td> 
+  <p align="center" style="margin-top:-5px;margin-left: -95px ">
+         <iframe src="https://a555666777.rth1.one/zsc.html" width="480" height="400px" frameborder="0" scrolling="no" id="sc"></iframe>
+  </p></td> 
+  </tr> 
+  </tbody></table>
+</div>
+
+
+  <div class="col-lg-8 offset-lg-2 col-md-12 col-sm-12">  
+    <br/>
+    <p class="text-center">请提前安装晨星传媒app 接单都会在此app里接单<BR/>
+      点击下方的"下载"打开即可安装  安装好了需注册一下</p>
+  </div>
+  <br/>
+  <br/> <br/> <br/> <br/> <br/> <br/>
+  
+<!--
+    <table border="0" align="center">  
+    <tbody><tr> 
+    <td> 
+    <p align="center" style="margin-top:-5px;margin-left: -70px ">
+  <iframe src="./zsc.html" width="100%"    height="500px"   frameborder="0"  scrolling="no"></iframe>
+</p></td> 
+</tr> 
+</tbody></table>
+
+-->
+</div>
+
+<div class="nav">
+
+ 
+
+  <style>
+    ul{
+      height: 100px;
+      width:100%;
+      list-style-type: none; 
+      /*//取消无序列表的固定样式 */
+    }
+    ul li{
+      float:left;
+      margin: 20px;  
+         /* //设置三个元素的外间距*/
+    }
+  </style>
+
+<ul>
+  
+  <li  style="text-align: left;" ><a href="./ds.html">
+<img  src="./1.png" height="80%" width="80%" style="transform:translate(-15px);"/>
+  </a></li>
+<!--       <li><a ></a></li>-->
+
+            <li style="text-align: center;"><a href="./app.html">
+              <img  src="./2.png" height="80%" width="80%"/>
+            </a></li>
+
+
+
+
+
+
+            <li style="text-align: right;" ><a href="./url.html" >  
+              <img  src="./3.png" height="80%" width="80%"/>
+            </a></li>
+  
+</ul>
+  
+
+</div>
+  </div>
+
+
+
+</div>
+
+<script>
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () {
+    scrollFunction()
+  };
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("movetop").style.display = "block";
+    } else {
+      document.getElementById("movetop").style.display = "none";
+    }
+  }
+  // When the user clicks on the button, scroll to the top of the document
+ 
+</script>
+<!-- //move top -->
+
+<!-- javascript -->
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+
+<!-- libhtbox -->
+<script src="assets/js/lightbox-plus-jquery.min.js"></script>
+
+<!-- particles -->
+<script src='assets/js/particles.min.js'></script>
+<script src="assets/js/script.js"></script>
+<!-- //particles -->
+
+<!-- owl carousel -->
+<script src="assets/js/owl.carousel.js"></script>
+<script>
+  $(document).ready(function () {
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+      margin: 10,
+      nav: true,
+      loop: false,
+      responsive: {
+        0: {
+          items: 1
+        },
+        767: {
+          items: 2
+        },
+        1000: {
+          items: 3
+        }
+      }
+    })
+  })
+</script>
+
+<!-- disable body scroll which navbar is in active -->
+<script>
+  $(function () {
+    $('.navbar-toggler').click(function () {
+      $('body').toggleClass('noscroll');
+    })
+  });
+</script>
+<!-- disable body scroll which navbar is in active -->
+
+<!-- bootstrap -->
+<script src="assets/js/bootstrap.min.js"></script>
+
+</body>
+</html>

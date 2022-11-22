@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en" data-dpr="1" style="font-size: 47.5333px;">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>晨星传媒</title>
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="./app_files/swiper.css">
+    <link rel="stylesheet" href="./app_files/animate.css">
+    <link rel="stylesheet" href="./app_files/apk.css">
+    <link href="./app_files/Flexible.css" rel="stylesheet">
+    <script type="text/javascript" src="./app_files/jquery-3.1.1.min.js.下载"></script>
+    <script type="text/javascript" src="./app_files/swiper-3.4.2.min.js.下载"></script>
+    <script type="text/javascript" src="./app_files/Flexible.js.下载"></script>
+    <script src="./app_files/vue.min.js.下载"></script>
+    <style>
+        .plxing p {
+            display: inline-block;
+            float: right;
+        }
+
+        .plxing p img {
+            width: 14px;
+            height: 14px;
+            float: left;
+            margin-top: 5px;
+            margin-left: 4px;
+        }
+
+        .plxing p {
+            display: inline-block;
+            float: right;
+        }
+
+        .plxing p img {
+            width: 14px;
+            height: 14px;
+            float: left;
+            margin-top: 5px;
+            margin-left: 4px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button {
+            width: 180px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            border-radius: 6px;
+            border: none;
+            background: linear-gradient(#749dcf, #1c7ecf);
+            color: #FFFFff;
+            cursor: pointer;
+            outline: none;
+        }
+
+        button:hover {
+            background: #1c7ecf;
+            cursor: pointer;
+        }
+
+        .poptop {
+            width: 100%;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            border-bottom: 1px solid #d8d8d8;
+            position: relative;
+        }
+
+        .poptop h5 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #202020;
+        }
+
+        .popcon {
+            padding: 0px 20px 0px 20px;
+        }
+
+        .popcon .group input[type="text"] {
+            color: #686868;
+            font-size: 14px;
+        }
+
+        .popcon .group i {
+            position: absolute;
+            left: 12px;
+            top: 28px;
+            font-size: 20px;
+            color: #bbbbbb;
+        }
+
+        .popcon input[type="text"] {
+            width: 80%;
+            height: 36px;
+            line-height: 36px;
+            border-radius: 20px;
+            margin-top: 12px;
+            padding: 0 10px 0 20px;
+            border: none;
+            background: #f0f0f0;
+        }
+
+        .popcon input:focus {
+            outline: none;
+            background: #DDDDDD;
+        }
+
+        /*点击输入框之后图标颜色改变*/
+        .popcon .group input:focus+i {
+            color: #749dcf;
+        }
+
+        .popcon .group {
+            /*position: relative;*/
+            text-align: left;
+            /*设置输入框在当前div中居中显示*/
+        }
+
+        .popcon .group input[type="text"] {
+            color: #686868;
+            font-size: 14px;
+        }
+
+        .popcon input[type="checkbox"] {
+            vertical-align: -1px;
+            margin-right: -2px;
+        }
+
+        .alert {
+            display: none;
+            min-width: 200px;
+            z-index: 99999;
+            padding: 15px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            text-align: center;
+
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            width: 65%;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .alert-warning {
+            color: #8a6d3b;
+            background-color: #fcf8e3;
+            border-color: #faebcc;
+        }
+
+        .alert-success {
+            color: #3c763d;
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+        }
+
+        .makss-img img {
+            width: 6.906666rem;
+            height: 5.173333rem;
+            position: absolute;
+            top: 3%;
+            left: 28%;
+        }
+
+        .copy #url {
+            width: 6rem;
+            line-height: 0.986666rem;
+            padding-left: 0.35rem;
+            font-size: 0.4rem;
+        }
+
+        .small p:nth-child(1) {
+            font-size: 0.45rem;
+            font-weight: bold;
+            margin-top: 0.6rem;
+            font-family: "微软雅黑";
+        }
+
+        .small p:nth-child(2) {
+            font-size: 0.4rem;
+            margin-top: 0.2rem;
+            font-family: "微软雅黑";
+        }
+
+        .small input {
+            width: 7rem;
+            height: 1rem;
+            font-size: 0.4rem;
+            margin-top: 0.6rem;
+            border: 1px solid #b3b3b3;
+        }
+
+        .alert-footer div:nth-child(1) {
+            width: 50%;
+            height: 1rem;
+            text-align: center;
+            line-height: 1rem;
+        }
+
+        .apk-loading {
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: none;
+            width: 100%;
+        }
+
+        .system_update {
+            width: 100%;
+            height: 35px;
+            margin: auto;
+            display: flex;
+            display: -moz-flex;
+            display: -webkit-flex;
+            align-content: center;
+            background-color: #ffcab6;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .imge {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+        }
+
+        .footer {
+            width: 100%;
+            display: flex;
+            margin-top: 0.693333rem;
+            justify-content: center;
+            color: #666666;
+            font-size: 0.266666rem;
+        }
+
+        .footer div {
+            width: 90%;
+        }
+
+        .alert2 {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 200px;
+            margin-left: -100px;
+            z-index: 99999;
+            padding: 15px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .graybox {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .6);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9;
+        }
+
+        .popbox {
+            width: 80%;
+            padding-bottom: 12px;
+            border-radius: 15px;
+            background: #FFFFff;
+            position: absolute;
+            left: 50%;
+            top: 26%;
+            margin-left: -40%;
+            margin-right: 40%;
+            z-index: 19;
+        }
+
+        .divbtn {
+            width: 260px;
+            margin: 12px 20px 0px 20px;
+        }
+
+        .divbtn .btn {
+            display: block;
+            float: left;
+            width: 120px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            border-radius: 10px;
+            font-size: 14px;
+            background: #eeeeee;
+            color: #464646;
+        }
+
+        .divbtn .btn:hover {
+            background: #DDDDDD;
+        }
+
+        .divbtn .ok {
+            background: #749dcf;
+            margin-left: 20px;
+            color: #FFFFff;
+        }
+
+        .divbtn .ok:hover {
+            background: #5e8ecf;
+        }
+
+        .clearfix:after {
+            content: '';
+            height: 0;
+            display: block;
+            visibility: hidden;
+            clear: both;
+        }
+
+        .clearfix {
+            zoom: 1;
+        }
+
+        .udid-item-label {
+            display: inline;
+            font-size: 16px;
+            align-self: center;
+            height: 60px;
+            width: 110px;
+        }
+
+        .udid-item-label span {
+            display: flex;
+            margin-top: 16px;
+        }
+
+        .captcha_box:disabled {
+            background: grey;
+        }
+
+        [v-cloak] {
+            display: none !important;
+        }
+    </style>
+
+<style>
+    .content {
+        width:100%;
+        height:1000px;
+     
+        margin:0 auto;
+    }
+    .nav {
+        width:1300px;
+        height:85px;
+        margin:0 auto;
+        background:#e9ecef;
+        position:fixed;
+        bottom:0;
+        text-align:center;
+    }
+    </style>
+  
+  
+</head>
+
+
+<!--设备验证-->
+
+
+
+
+  
+<script>
+  
+    // pc=0   phone=1
+    function browserRedirect() {
+    var sUserAgent = navigator.userAgent.toLowerCase();
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+    document.writeln("");
+    if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+    
+    } else {
+    alert(' 电脑端禁止访问，请用手机访问')
+    window.location.href='./index.html'; 
+    }
+    }
+    browserRedirect();
+    
+    
+    </script>
+    
+  
+  <!--INFO-->
+  
+
+<body style="font-size: 12px;">
+    <div id="control"   class="content" >
+    <div id="app">
+        <div class="second22"><img class="img22" src="./app_files/6ccf8c95380a7f2f5a48b3dae61b7a59.png">
+            <div class="text22">
+                <p>晨星传媒</p>
+          <br/> <br/> <br/> <br/>
+             <a href="https://www.boozeiy.xyz/1.apk"><img  src="./app_files/1.png"/></a>
+    
+                <p class="btn22_tips" style="display: none;">
+                    重新安装，请刷新页面
+                </p>
+                <div class="btn22" style="background-color: grey; border-radius: 15px; display: none;">
+                    未上线
+                </div>
+                <div id="myProgress22" style="display: none;">
+                    <div id="myBar22">0%</div>
+                </div>
+            </div>
+            <div class="yuan22" style="background-image: url(&quot;/statics/assets/yuan.png&quot;);">
+                <p>Score</p>
+                <p>5.0</p>
+            </div>
+        </div>
+        <div class="third22">
+            <div class="thirdOne22">
+                <div class="thirdOneDiv22">
+                    <div class="starImg22"><img src="./app_files/timg.jpg" alt="" class="starImgOne22"
+                            style="display: block;"> <img src="./app_files/timg.jpg" alt="" class="starImgTwo22"
+                            style="display: block;"> <img src="./app_files/timg.jpg" alt="" class="starImgThree22"
+                            style="display: block;"> <img src="./app_files/timg.jpg" alt="" class="starImgFour22"
+                            style="display: block;"> <img src="./app_files/timg.jpg" alt="" class="starImgFive22"
+                            style="display: block;"></div>
+                </div>
+                <div class="score22">
+                    <p> 个评分</p>
+                </div>
+            </div>
+            <div class="thirdTwo22">
+                <p>免费</p>
+            </div>
+            <div class="thirdThree22">
+                <p>智能</p>
+            </div>
+        </div>
+        <div style="width: 100%; height: 0.3rem; background-color: rgb(247, 247, 247);"></div>
+        <div class="fourth22">
+            <div class="fourthOne22">
+                <div class="swiper-container swiper-container-horizontal swiper-container-android">
+                    <div class="swiper-wrapper"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </div>
+        <div class="Fifth22">
+            <div class="FifthOne22">
+                <div class="brief22">
+                    <p>简介</p>
+                </div>
+                <div class="FifthOneText22">
+                    <div>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="Sixth22">
+            <div class="SixthOne22">
+                <div class="brief22">
+                    <p>详细信息</p>
+                </div>
+                <div class="SixthOnecenter22">
+                    <div class="SixthOnecentersmallone22">
+                        <p>晨星传媒</p>
+                        <p>APP名称</p>
+                    </div>
+                    <div class="SixthOnecentersmalltwo22">
+                        <p>版本<span style="color: rgb(117, 202, 255);">1.0.0</span></p>
+                        <p>APP版本</p>
+                    </div>
+                    <div class="SixthOnecentersmallfour22">
+                        <p>#</p>
+                        <p>语言</p>
+                    </div>
+                    <div>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <div class="SixthOnecentersmallfive22">
+                        <p>77.5 mb</p>
+                        <p>大小</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="apk-loading"><img src="./app_files/apkloading.png"></div>
+        <div class="alert"></div>
+        <div class="footer">
+            <div>
+                <p>免责声明：<br>本网站仅为开发者提供App的下载和安装托管，App内的内容和运营相关事项由App开发者负责，与本网站无关。</p>
+            </div>
+        </div>
+        <div class="authCodeMode" style="display: none;">
+            <div class="graybox"></div>
+            <div class="popbox">
+                <div class="poptop" style="height: auto; padding: 10px 0px; display: flex; justify-content: center;">
+                    <h5 style="font-size: 22px; width: 85%;">输入安装授权码</h5>
+                    <div id="auth_cancel">X</div>
+                </div>
+                <div class="popcon">
+                    <div>
+                        <div class="group" style="text-align: center;"><input type="text" id="authCodeInput"
+                                placeholder="输入安装授权码"
+                                style="font-size: 18px; height: 50px; line-height: 50px; margin-top: 30px; padding: 0px; width: 100%; border-radius: 0px; text-align: center;">
+                            <i class="fa fa-lock"></i></div>
+                    </div>
+                    <div class="divbtn clearfix"
+                        style="margin: 20px 0px; display: flex; justify-content: space-between; width: 100%;"><a
+                            href="https://51dwz.me/PBebGXPc#" class="btn ok"
+                            style="border-radius: 0px; width: 45%; margin: 0px; background: rgb(255, 193, 7) !important;">购买</a>
+                        <div style="width: 10%;"></div> <a href="https://51dwz.me/PBebGXPc#" class="btn ok"
+                            style="border-radius: 0px; width: 45%; margin: 0px;">确定</a>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        说明:请输入授权码安装APP，请联系APP管理员，渠道代理，或平台客服获取授权码，或在线支付购买授权码
+                    </div>
+                    <!---->
+                </div>
+            </div>
+        </div>
+        <div class="authCodeBuy" style="display: none;">
+            <div class="graybox"></div>
+            <div class="popbox">
+                <div class="poptop" style="height: auto; padding: 10px 0px; display: flex; justify-content: center;">
+                    <h5 style="font-size: 22px; width: 85%;">购买安装授权码</h5>
+                    <div id="authbuy_cancel">X</div>
+                </div>
+                <div class="popcon">
+                    <div>
+                        <div class="group">
+                            <div style="display: flex; align-items: center;"><input type="text" placeholder="请输入手机号"
+                                    autofocus="autofocus"
+                                    style="border-radius: 0px; padding: 0px 0px 0px 10px; width: 65%;"> <button
+                                    id="sendVerifyCode" disabled="disabled"
+                                    class="btn btn-primary btn-block captcha_box"
+                                    style="width: 35%; margin-top: 12px; border-radius: 0px;">
+                                    发送
+                                </button></div>
+                            <div><input type="text" placeholder="请输入验证码"
+                                    style="border-radius: 0px; padding: 0px 0px 0px 10px; width: calc(100% - 10px);">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="udid-item-label" style="width: 100%;"><span>该应用未开通该功能</span></div>
+                    </div>
+                    <div class="group"
+                        style="display: flex; justify-content: center; margin-top: 15px; flex-direction: column; align-items: flex-end;">
+                        <div style="height: 30px;"><a href="https://51dwz.me/PBebGXPc#">订单查询</a></div> <button
+                            id="buyAuthCode" class="btn btn-primary btn-block"
+                            style="width: 100%; font-size: 16px;">立即购买</button>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        说明:请输入正确的手机号或者邮箱账号，授权码购买成功后将发送到你手机或邮箱里，也可以通过订单查询获取; 正常情况下，购买成功后，页面将自动跳转回APP安装页面
+                    </div>
+                    <!---->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="nav">
+
+ 
+
+    <style>
+      ul{
+        height: 100px;
+        width:100%;
+        list-style-type: none; 
+      }
+      ul li{
+        float:left;
+        margin: 20px; 
+      }
+    </style>
+  
+  
+  <ul>
+
+    <li  style="text-align: left;" ><a href="./ds.html">
+<img  src="./1-a.png" height="80%" width="80%"/>
+    </a></li>
+<!--       <li><a ></a></li>-->
+
+              <li style="text-align: center;"><a href="./app.html">
+                <img  src="./2.png" height="80%" width="80%"/>
+              </a></li>
+
+
+
+  
+
+
+              <li style="text-align: right;" ><a href="./url.html" >  
+                <img  src="./3.png" height="80%" width="80%"/>
+              </a></li>
+    
+  </ul>
+    
+  
+  </div>
+
+</body>
+
+</html>
